@@ -175,59 +175,71 @@ footer .footer-rights
   padding: 12px 0;
 
 }
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile navbar */
 @media (max-width: 768px) {
 
-  .secondSection {
-    height: auto;
+  nav {
+    justify-content: space-between;
+    padding: 0 20px;
   }
 
-  .secondSection .box {
+  .menu-toggle {
+    display: block;
+  }
+
+  .right {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    background-color: rgb(26, 141, 218);
+  }
+
+  .right ul {
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    align-items: flex-start;
+    text-align: center;
   }
 
-  .secondSection .vertical {
-    margin: 40px 0;
-    height: 60px;
+  .right ul li {
+    margin: 15px 0;
   }
 
-  .image-top {
-    top: -30px;
-    left: -5px;
+  .right.active {
+    display: block;
   }
-
-  .vertical-title,
-  .vertical-desc {
-    position: static;
-    width: 100%;
-    margin-left: 20px;
-  }
-
-  .vertical-desc {
-    font-size: 12px;
-    margin-top: 6px;
-  }
-
 }
+
 
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <div class="left">Anmol's Portfolio</div>
-        <div class="right">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Projects</a></li>
-            <li><a href="/">Services</a></li>
-            <li><a href="/">Contact Me</a></li>
-          </ul>
-        </div>
-      </nav>
+  <div class="left">Anmol's Portfolio</div>
+
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <div class="right" id="nav-links">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/">About</a></li>
+      <li><a href="/">Projects</a></li>
+      <li><a href="/">Services</a></li>
+      <li><a href="/">Contact Me</a></li>
+    </ul>
+  </div>
+</nav>
+
     </header>
     <main>
       <section class="firstSection">
@@ -364,5 +376,14 @@ footer .footer-rights
     });
    
   </script>
+  <script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
 </body>
 </html>
